@@ -299,6 +299,10 @@ impl<I: State> Observe<I> for Observers<I> {
 /// `Never` deactivates the observer.
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 #[cfg_attr(feature = "serde1", derive(Serialize, Deserialize))]
+#[cfg_attr(
+    feature = "borsh",
+    derive(borsh::BorshDeserialize, borsh::BorshSerialize)
+)]
 pub enum ObserverMode {
     /// Never call the observer
     Never,
